@@ -22,6 +22,8 @@ WatchDog is a simple application designed to monitor the availability of website
 
 ## Installation 🛠
 
+### Your Instance 🔥
+
 Clone my repository:
 
 ```bash
