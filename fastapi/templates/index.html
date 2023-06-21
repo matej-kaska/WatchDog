@@ -10,6 +10,13 @@
             <h1>Websites</h1>
             <hr>
             <div>
+				<h5>Add website</h5>
+				<div>
+					<label for="addWebsite">URL of website</label>
+					<input id="addWebsite" type="text" placeholder="Write URL">
+				</div>
+				<button onClick="addWebsite(document.getElementById('addWebsite').value)">Add</button>
+                </div>
                 <div>
                     <div>
                         {% for website in websites %}
