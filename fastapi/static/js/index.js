@@ -31,6 +31,32 @@ const addWebsite = async (website) => {
     }
 };
 
+const CheckStatus = async (ip) => {
+    try {
+        const rawResponse = await fetch('http://localhost:5001/check-status', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ip: ip })
+        });
+        const content = await rawResponse.json();
+        if (rawResponse.status === 400) {
+            if (content.message === "Something went wrong!") {
+                window.alert("Něco se pokazilo!")
+            }
+        }
+        else if (rawResponse.status === 200) {
+            document.getElementById(ip + "code").innerHTML = content.status;
+            document.getElementById(ip + "chec").innerHTML = content.date;
+        }
+
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
 // Chart for website
 const ctx = document.getElementById('StatusChart');
 

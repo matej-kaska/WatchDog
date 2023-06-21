@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>WatchDog</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.min.css') }}">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">WatchDog</a>
+            </div>
+        </nav>
+    </header>
+
     <main>
-        <section>
+        <section class="container py-5">
             <h1>Websites</h1>
             <hr>
-            <div>
-				<h5>Add website</h5>
-				<div>
-					<label for="addWebsite">URL of website</label>
-					<input id="addWebsite" type="text" placeholder="Write URL">
-				</div>
-				<button onClick="addWebsite(document.getElementById('addWebsite').value)">Add</button>
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add website</h5>
+                            <div class="form-group">
+                                <label for="addWebsite">URL of website</label>
+                                <input id="addWebsite" class="form-control" type="text" placeholder="Write URL">
+                            </div>
+                            <button class="btn btn-primary mt-2" onClick="addWebsite(document.getElementById('addWebsite').value)">Add</button>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div>
+                <div class="col-md-8 order-md-1">
+                    <div class="card-deck">
                         {% for website in websites %}
-                        <div>
-                            <div>
-                                <h5><a href="website/{{ website }}">{{ website }}</a></h5>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="website/{{ website }}">{{ website }}</a></h5>
                             </div>
                         </div>
                         {% endfor %}
@@ -32,6 +46,11 @@
         </section>
     </main>
 
+    <footer class="bg-dark py-3 mt-auto">
+        <p class="text-light text-center my-1">&copy; 2023 CHK</p>
+    </footer>
+
+    <script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', path='/js/index.js') }}"></script>
 </body>
 </html>
