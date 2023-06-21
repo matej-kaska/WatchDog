@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  ## Fastapi
+  api:
+    build: fastapi
+    container_name: fastapi
+    restart: unless-stopped
+    volumes:
+      - ./fastapi:/fastapi
+    ports:
+      - "5001:5001"
+    networks:
+      - mynetwork
+    depends_on:
+      - sql
+
+  ## Database
+  sql:
+    container_name: database
+    image: mariadb
+    networks:
+      - mynetwork
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: Watchdog
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    restart: unless-stopped
+    volumes:
+      - ./fastapi/db:/docker-entrypoint-initdb.d
+
+networks:
+  mynetwork:
