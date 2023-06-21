@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.min.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment"></script>
     <script>
         var chart_data = JSON.parse('{{ chart_data | safe }}');
     </script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">WatchDog</a>
+            </div>
+        </nav>
+    </header>
+
     <main>
         <canvas id="StatusChart" height="50px"></canvas>
-        <section>
+        <section class="container py-5">
             <h1>Detail</h1>
             <hr>
-            <div>
+            <div class="row">
                 {% for response in last_response %}
-                <div>
-                    <article>
-                        <div>
-                            <h2>{{ response[0] }}</h2>
-                            <p>Status code: <span id="{{ response[0] }}code">{{ response[1] }}</span></p>
-                            <p>Checked: <span id="{{ response[0] }}chec">{{ response[2] }}</span></p>
-							<button>Check</button>
+                <div class="col-md-4 mb-3">
+                    <article class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ response[0] }}</h2>
+                            <p class="card-text">Status code: <span id="{{ response[0] }}code">{{ response[1] }}</span></p>
+                            <p class="card-text">Checked: <span id="{{ response[0] }}chec">{{ response[2] }}</span></p>
+                            <button class="btn btn-primary" onclick="CheckStatus('{{ response[0] }}')">Check</button>
                         </div>
                     </article>
                 </div>
@@ -31,6 +40,14 @@
             </div>
         </section>  
     </main>
+
+    <footer class="bg-dark py-3 mt-auto">
+        <div class="container">
+            <p class="text-light text-center my-1">&copy; 2023 CHK</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', path='/js/index.js') }}"></script>
 </body>
 </html>
