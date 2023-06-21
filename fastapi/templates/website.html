@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script>
+        var chart_data = JSON.parse('{{ chart_data | safe }}');
+    </script>
+</head>
+<body>
+    <main>
+        <canvas id="StatusChart" height="50px"></canvas>
+        <section>
+            <h1>Detail</h1>
+            <hr>
+            <div>
+                {% for response in last_response %}
+                <div>
+                    <article>
+                        <div>
+                            <h2>{{ response[0] }}</h2>
+                            <p>Status code: <span id="{{ response[0] }}code">{{ response[1] }}</span></p>
+                            <p>Checked: <span id="{{ response[0] }}chec">{{ response[2] }}</span></p>
+							<button>Check</button>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+            </div>
+        </section>  
+    </main>
+    <script src="{{ url_for('static', path='/js/index.js') }}"></script>
+</body>
+</html>
