@@ -38,16 +38,6 @@ Compose (in root folder):
 
 Now wait until it finishes, and then open <http://localhost:5001> in the web browser of your choice.
 
-### Configured Instance 🔥
-
-Experience the power of WatchDog with our pre-configured instance, already set up with valuable data. Explore the capabilities of our application by visiting <https://swi.boubik.cz/>.
-
-By accessing our pre-configured instance, you can instantly dive into a comprehensive demonstration of WatchDog's features and functionalities. This instance is carefully prepared to showcase the full potential of our application, allowing you to explore various website monitoring scenarios and gain a deeper understanding of its capabilities.
-
-Take advantage of this opportunity to observe real-time data and analysis, enabling you to witness the application's performance in action. The pre-configured instance is populated with informative data, including multiple websites with their respective status codes, response times, and IP addresses.
-
-Please note that this configured instance is for demonstration purposes only. To utilize WatchDog for your specific website monitoring needs, we recommend setting up your own instance and tailoring it to your requirements. Our team is readily available to assist you in this process and ensure seamless integration into your infrastructure.
-
 ## User Guide ❤️
 
 ### Main Page 📖
