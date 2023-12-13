@@ -1,6 +1,6 @@
 const addWebsite = async (website) => {
     try {
-      const rawResponse = await fetch('http://localhost:5001/add-website', {
+      const rawResponse = await fetch('https://swi.boubik.cz/add-website', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -33,7 +33,7 @@ const addWebsite = async (website) => {
 
 const CheckStatus = async (ip) => {
     try {
-        const rawResponse = await fetch('http://localhost:5001/check-status', {
+        const rawResponse = await fetch('https://swi.boubik.cz/check-status', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
